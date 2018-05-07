@@ -1,0 +1,237 @@
+<html>
+	<head>
+		<title> Jquery Validation </title>
+		<link href="assets/css/bootstrap.css" rel="stylesheet">
+		<script src="assets/js/jquery.min.js"></script>
+		<script>
+			function validate()
+			{
+				
+					//fetch values of respective textboxes
+					var name=$("#fname").val().trim(); //trim remove left and right space.
+					var email=$("#email").val().trim();
+					var mobile=$("#mobile").val().trim();
+					var city=$("#city").val();
+					var message=$("#msg").val().trim();
+					//alert(name+" "+email+" "+mobile+" "+city+" "+message);
+					var status=true;
+					
+					if(name=="")
+					{
+						status=false;
+						$("#fname").css("borderColor","red");
+						$('#fnameerror').text("please enter name");
+					}
+					else
+					{
+						
+						$("#fname").css("borderColor","green");
+						$('#fnameerror').text("");
+					}
+					
+					if(email=="")
+					{
+						status=false;
+						$("#email").css("borderColor","red");
+						$('#emailerror').text("please enter email");
+					}
+					else
+					{
+						
+						$("#email").css("borderColor","green");
+						$('#emailerror').text("");
+					}
+					
+					if(mobile==""||mobile.length<10||mobile.length>10||isNaN(mobile))
+					{
+						status=false;
+						$("#mobile").css("borderColor","red");
+						$('#mobileerror').text("please enter mobile");
+						
+					}
+					else
+					{
+						$("#mobile").css("borderColor","green");
+						$('#mobileerror').text("");
+					}
+					
+					if(city=="")
+					{
+						status=false;
+						$("#city").css("borderColor","red");
+						$('#cityerror').text("please enter city");
+					}
+					else
+					{
+						$("#city").css("borderColor","green");
+						$('#cityerror').text("");
+					}
+					
+					if(message=="")
+					{
+						status=false;
+						$("#msg").css("borderColor","red");
+						$('#msgerror').text("please enter message");
+					}
+					else
+					{
+						$("#msg").css("borderColor","green");
+						$('#msgerror').text("");
+					}
+					//--------------------------for gender----------------------------------------------//
+					if($("#male").is(":checked") ||$("#female").is(":checked"))
+					{
+						$("#gendererror").text("");
+					
+					}
+					else{
+						status=false;
+						$("#gendererror").text("please select gender");
+					
+					
+					}
+					//------------------------------------for hobby--------------------------------//
+					if($("#hobby1").is(":checked") ||$("#hobby2").is(":checked")||$("#hobby3").is(":checked")||$("#hobby4").is(":checked"))
+					{
+						$("#hobbyerror").text("");
+					
+					}
+					else{
+						status=false;
+						$("#hobbyerror").text("please select hobby");
+					
+					
+					}
+					//---------------if status is true then submit form----//
+					return status;
+					
+					
+				
+			}
+		</script>
+	</head>
+	<body>
+		<div class="container">
+		<h3 class="text-center"> Jquery Validation </h3>
+			<div class="row">
+				<div class="col-sm-3">
+				</div>
+				<div class="col-sm-6 well">
+				<form action="#" method="POST" id="f1" onsubmit="return validate()">
+					<div class="form-group">
+						<div class="row">
+							<div class="col-sm-4">
+								<label> Name </label>
+							</div>
+							<div class="col-sm-8">
+								<input type="text" name="fname" id="fname" class="form-control">
+								<i style="color:red" id="fnameerror"></i>
+							</div>
+						</div>
+					</div>
+						
+					<div class="form-group">
+						<div class="row">
+							<div class="col-sm-4">
+								<label> Email </label>
+							</div>
+							<div class="col-sm-8">
+								<input type="text" name="email" id="email" class="form-control">
+								<i style="color:red" id="emailerror"></i>
+							</div>
+						</div>
+					</div>
+						
+						
+					<div class="form-group">
+						<div class="row">
+							<div class="col-sm-4">
+								<label> Mobile </label>
+							</div>
+							<div class="col-sm-8">
+								<input type="text" name="mobile" id="mobile" class="form-control">
+								<i style="color:red" id="mobileerror"></i>
+							</div>
+						</div>
+					</div>
+						
+						
+					<div class="form-group">
+						<div class="row">
+							<div class="col-sm-4">
+								<label> City </label>
+							</div>
+							<div class="col-sm-8">
+								<select class="form-control" id="city">
+									<option value=""> Choose City </option>
+									<option value="bangalore"> Bangalore </option>
+									<option value="mumbai"> Mumbai </option>
+								</select>
+								<i style="color:red" id="cityerror"></i>
+							</div>
+							
+						</div>
+					</div>
+						
+					
+					<div class="form-group">
+						<div class="row">
+							<div class="col-sm-4">
+								<label> Message </label>
+							</div>
+							<div class="col-sm-8">
+								<textarea id="msg" class="form-control"></textarea>
+								<i style="color:red" id="msgerror"></i>
+							</div>
+						</div>
+					</div>
+						
+						<div class="form-group">
+								<div class="row">
+									<div class="col-sm-4">
+										<label>Gender</label>
+									</div>
+									<div class="col-sm-8">
+										<input type="radio" value="male" name="gender" id="male">Male
+										<input type="radio" value="female" name="gender" id="female">Female
+										
+				                    </div>
+									<i style="color:red" id="gendererror"></i>
+								</div>
+							</div>
+							
+							
+							<div class="form-group">
+								<div class="row">
+									<div class="col-sm-4">
+										<label>Hobby</label>
+									</div>
+									<div class="col-sm-8">
+										<input type="checkbox" value="reading" name="hobby" id="hobby1">Reading
+										<input type="checkbox" value="writing" name="hobby" id="hobby2">Writing
+										<input type="checkbox" value="singing" name="hobby" id="hobby4">Singing
+										<input type="checkbox" value="dancing" name="hobby" id="hobby3">Dancing
+				                    </div>
+									<i style="color:red" id="hobbyerror"></i>
+								</div>
+							</div>
+						
+						
+					<div class="form-group">
+						<div class="row">
+							<div class="col-sm-12 text-center">
+								<button type="submit" class="btn btn-primary"> Send </button>
+							</div>
+						</div>
+					</div>
+						
+						</form>
+						</div>
+					</div>
+				</div>
+				<div class="col-sm-3">
+				</div>
+			</div>
+		</div>
+	</body>
+</html>

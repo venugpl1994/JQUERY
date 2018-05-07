@@ -1,0 +1,53 @@
+<html>
+	<head>
+		<title>Jquery css</title>
+		<style>
+			#div1{
+				height:200px;
+				width:200px;
+				border:3px solid blue;
+				background-color:gray;
+				border-radius:100px;
+			}
+			
+			#div2{
+				height:300px;
+				width:300px;
+				border:3px solid blue;
+				background-color:yellow;
+				border-radius:100px;
+			}
+		</style>
+		<script src="assets/js/jquery.min.js"></script>
+		<script>
+			$(function(){
+				$("#red").click(function(){
+					$("#div1").css("backgroundColor","red");
+				})
+				
+				$("#yellow").click(function(){
+					$("#div1").css("backgroundColor","yellow");
+				})
+				
+				$("#green").click(function(){
+					$("#div1").css("backgroundColor","green");
+				})
+				$("#animate").click(function(){
+					$("#div2").css(
+					{"height":"300px",
+					"width":"300px",
+					"backgroundColor":"blue",
+					"border":"5px solid red"}).slideToggle(2000);
+				})
+			})
+		</script>
+	</head>
+	<body>
+		<div id="div1"></div>
+		<div id="div2"></div>
+		<button type="button" id="red">Red</button>
+		<button type="button" id="yellow">yellow</button>
+		<button type="button" id="green">green</button>
+		<button type="button" id="animate">Animate</button>
+	</body>
+</html>

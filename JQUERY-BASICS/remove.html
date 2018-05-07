@@ -1,0 +1,53 @@
+<html>
+	<head>
+		<title>remove(),empty()</title>
+		<script src="assets/js/jquery.min.js"></script>
+		<style>
+			
+			#div1{
+			background-color:yellow;
+			height:300px;
+			width:300px;
+			
+			}
+		
+		
+		
+		
+		</style>
+		<script>
+			$(function(){
+			$("#btn1").click(function(){
+			$("#div1").remove();
+			})
+			$("#btn2").click(function(){
+			$("#div1").empty();
+			})
+			$("#b4btn").click(function(){
+			$("#p1").before("<input type='text' placeholder='Enter name'>");
+			$("afterbtn").click(function(){
+			$("#p1").after("<input type='text' placeholder='Enter name'>");
+			})
+		
+		
+		</script>
+	</head>
+	<body>
+		<div id="div1">
+			<p>this is para</p>
+			<p>this is para</p>
+			<p id="p1">this is para</p>
+			<p>this is para</p>
+			<p>this is para</p>
+			<p>this is para</p>
+		
+		</div>
+		<button id="btn1">Remove</button>
+		<button id="btn2">Empty</button>
+		<button id="b4btn">Before</button>
+		<button id="afterbtn">After</button>
+	
+	
+	</body>
+
+</html>

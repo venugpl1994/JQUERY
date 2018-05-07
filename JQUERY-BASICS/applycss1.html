@@ -1,0 +1,48 @@
+<html>
+	<head>
+		<title>Jquery css</title>
+		<style>
+			#div1{
+				height:200px;
+				width:200px;
+				border:3px solid blue;
+				background-color:gray;
+				border-radius:100px;
+			}
+		</style>
+		<script src="assets/js/jquery.min.js"></script>
+		<script>
+			$(function(){
+				$("#red").click(function(){
+					$("#body1").css("backgroundColor","red");
+				})
+				
+				$("#yellow").click(function(){
+					$("#body1").css("backgroundColor","yellow");
+				})
+				
+				$("#green").click(function(){
+					$("#body1").css("backgroundColor","green");
+				})
+				
+				$("#red").click(function(){
+					$("#div1").css("backgroundColor","green");
+				})
+				
+				$("#yellow").click(function(){
+					$("#div1").css("backgroundColor","red");
+				})
+				
+				$("#green").click(function(){
+					$("#div1").css("backgroundColor","yellow");
+				})
+			})
+		</script>
+	</head>
+	<body id="body1">
+		<div id="div1"></div>
+		<button type="button" id="red">Red</button>
+		<button type="button" id="yellow">yellow</button>
+		<button type="button" id="green">green</button>
+	</body>
+</html>

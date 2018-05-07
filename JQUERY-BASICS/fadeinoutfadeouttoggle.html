@@ -1,0 +1,64 @@
+<html>
+	<head>
+	<title>fadeIn() fadeOut() fadeToggle</title>
+	<script src="assets/js/jquery.min.js"></script>
+	<style>
+		#div1
+		{
+			height:100px;
+			width:100px;
+			padding:20px;
+			border:2px solid blue;
+			background-color:yellow;
+			margin:10px;
+		}
+		#div2
+		{
+			height:100px;
+			width:100px;
+			padding:20px;
+			border:2px solid yellow;
+			background-color:blue;
+			margin:10px;
+		}
+		#div3
+		{
+			height:100px;
+			width:100px;
+			padding:20px;
+			border:2px solid red;
+			background-color:blue;
+			margin:10px;
+		}
+	</style>
+	
+	<script>
+		$(document).ready(function(){
+			$("#fadeinbtn").click(function(){
+				$("#div1").fadeIn();
+				$("#div2").fadeIn();
+				$("#div3").fadeIn();
+			})
+			$("#fadeoutbtn").mouseenter(function(){
+				$("#div1").fadeOut();
+				$("#div2").fadeOut();
+				$("#div3").fadeOut();
+			})
+			$("#fadetogglebtn").click(function(){
+				$("#div1").fadeToggle();
+				$("#div2").fadeToggle();
+				$("#div3").fadeToggle();
+			})
+		});
+		
+	</script>
+	</head>
+	<body>
+		<div id="div1"></div>
+		<div id="div2"></div>
+		<div id="div3"></div>
+		<button type="button" id="fadeinbtn">Fade In</button>
+		<button type="button" id="fadeoutbtn">Fade Out</button>
+		<button type="button" id="fadetogglebtn">Fade Toggle</button>
+	</body>
+</html>

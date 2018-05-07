@@ -1,0 +1,42 @@
+<html>
+	<head>
+	<title>prepend(), append()</title>
+	<script src="assets/js/jquery.min.js"></script>
+	<script>
+		$(function(){
+			$("#btn").click(function(){
+			$("#items").prepend("<li>Green Leafy Vegetables</li>");
+			})
+			$("#btn2").click(function(){
+			$("#items2").append("<li>Green Leafy Vegetables</li>");
+			})
+			
+			
+			
+			
+		});
+	
+	
+	</script>
+	</head>
+	<body>
+		<h3>prepending items</h3>
+		<ol id="items">
+			<li>Fruits</li>
+			<li>vegetables</li>
+			<li>clothings</li>
+		</ol>
+		<button id="btn">prepend(Add items before)</button>
+		<hr>
+		<h3>Appending the items</h3>
+		<ol id="items2">
+			<li>Fruits</li>
+			<li>vegetables</li>
+			<li>clothings</li>
+		</ol>
+		<button id="btn2">Append(Add items after)</button>
+	</body>
+	</html>
+	
+	
+	

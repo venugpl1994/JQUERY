@@ -1,0 +1,5 @@
+<html>
+	<head>
+	<title>slide up(),slidedown(),slide Toggle()</title>
+	<script src="assets/js/jquery.min.js"></script>
+	<style><

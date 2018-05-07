@@ -1,0 +1,50 @@
+<html>
+<head>
+<title>Hide Show Toggle</title>
+<link href="assets/css/bootstrap.css" rel="stylesheet">
+<script src="assets/js/jquery.min.js"></script>
+<script>
+$(document).ready(function(){
+			$("#hidediv").click(function(){
+				$("#div1").hide();
+			})
+			$("#showdiv").click(function(){
+				$("#div1").show();
+			})
+			$("#togglediv").click(function(){
+				$("#div1").toggle();
+			})
+});
+
+
+</script>
+
+
+</head>
+<body>
+<div class="container">
+	<div class="row">
+	<div class="col-sm-4">
+		<ul class="list-group">
+			<li class="list-group-item"><a href="#" id="hidediv">Hide div</a></li>
+			<li class="list-group-item"><a href="#" id="showdiv">Show div</a></li>
+			<li class="list-group-item"><a href="#" id="togglediv">Toggle div</a></li>
+		
+		</ul>
+	</div>
+	<div class="col-sm-4">
+		<div id="div1" class="well">click on the link to see the effect</div>
+	
+	</div>
+	<div class="col-sm-4">
+	
+	</div>
+</div>
+	
+
+
+</div>
+
+</body>
+
+</html>

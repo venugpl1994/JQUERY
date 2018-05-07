@@ -1,0 +1,104 @@
+<html>
+	<head>
+	<title>slide up(),slidedown(),slide Toggle()</title>
+	<script src="assets/js/jquery.min.js"></script>
+	<style>
+		#div1{
+		height:50px;
+		width:100%;
+		background-color:pink;
+		}
+		#panel1{
+		
+		height:200px;
+		width:100%;
+		background-color:blue;
+		color:white;
+		text-align:center;
+		font-weight:bold;
+		font-size:25px;
+		display:none;
+		
+		
+		}
+		#div2{
+		height:50px;
+		width:100%;
+		background-color:gray;
+		}
+		#panel2{
+		
+		height:200px;
+		width:100%;
+		background-color:black;
+		color:white;
+		text-align:center;
+		font-weight:bold;
+		font-size:25px;
+		
+		
+		}
+		#div3{
+		height:50px;
+		width:100%;
+		background-color:gray;
+		}
+		#panel3{
+		
+		height:200px;
+		width:100%;
+		background-color:black;
+		color:white;
+		text-align:center;
+		font-weight:bold;
+		font-size:25px;
+		
+		
+		}
+		
+		
+		
+		
+	</style>
+	<script>
+		$(document).ready(function(){
+			$("#div1").click(function(){
+				$("#panel1").slideDown();
+				})
+				
+			$("#div2").click(function(){
+				$("#panel2").slideUp();
+				})
+				$("#div3").click(function(){
+				$("#panel3").slideToggle();
+				})
+				
+				
+				
+				
+				})
+	
+	
+	
+	</script>
+	</head>
+	<body>
+	
+	<h3 align="center">slideDown</h3>
+	<div id="div1">click me to view slide down effect</div>
+	<div id="panel1">hello welcome to infocampus</div>
+	<hr>
+	<h3 align="center">slideUp</h3>
+	<div id="div2"></div>
+	<div id="panel2"></div>
+	<hr>
+	<h3 align="center">slideToggle</h3>
+	<div id="div3"></div>
+	<div id="panel3"></div>
+	
+	
+	
+	
+	</body>
+	</html>
+		

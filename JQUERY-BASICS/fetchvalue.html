@@ -1,0 +1,41 @@
+<html>
+<head>
+<title>Fetch value</title>
+<script src="assets/js/jquery.min.js"></script>
+</head>
+<script>
+$(function(){
+			$("#fetch").click(function(){
+			var name=$("#name").val();
+			$("#fetch").text("fetching....");
+			alert("you enter"+name);
+			$("#fetch").text("fetch");
+			})
+			$("#settext").click(function(){
+			$("#email").text("hello world");
+			})
+			$("#sethtml").click(function(){
+			$("#p2").html("<b>hello world</b>");
+			})
+			
+			})
+
+</script>
+<body>
+	Name<input type="text" id="name">
+	<button id="fetch">Fetch</button><br><br>
+	<p id="email">Dnolad Duck</p>
+	<p id="p2">Dnolad abc</p>
+	<button id="settext">Set Text</button><br><br>
+	<button id="sethtml">Set Html</button><br><br>
+
+</body>
+
+
+
+
+
+</head>
+
+
+</html>

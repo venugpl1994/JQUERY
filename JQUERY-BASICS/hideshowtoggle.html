@@ -1,0 +1,41 @@
+<html>
+	<head>
+	<title>hide(),show(),toggle()</title>
+	<link href="assets/css/bootstrap.css" rel="stylesheet">
+	<script src="assets/js/jquery.min.js"></script>
+	<script>
+		$(document).ready(function(){
+			$("p").click(function(){
+				$(this).hide();
+			})
+			$("button").click(function(){
+				$("p").hide();
+			})
+			$("#btn1").click(function(){
+				$("#p1").hide();
+			})
+			$("#btn2").click(function(){
+				$("#p1").show();
+			})
+			$("#btn3").click(function(){
+				$("#p1").toggle();
+			})
+		});
+	</script>
+	</head>
+	<body>
+		<p>IF you click para1 i am going to hidden</p>
+		<p>IF you click para2 am going to hidden</p>
+		<p>IF you click para3 i am going to hidden</p>
+		<p>IF you click para4 i am going to hidden</p>
+		<button type="button" class="btn btn-info">HIDE</button>
+		<hr>
+		<p id="p1">This is a paragraph with an id</p>
+		<input type="button" class="btn btn-info" id="btn1" value="hide">
+		<input type="button" class="btn btn-info" id="btn2" value="show">
+		<input type="button" class="btn btn-info" id="btn3" value="show/hide">
+		
+	
+	
+	</body>
+</html>

@@ -1,0 +1,650 @@
+what is database?
+	->database is collections of table
+	------------------------------
+how to create a database
+	syntax:
+		create database <databasename>;
+		example:
+		create database myorg;
+	-----------------------------
+How to drop a database in mysql ?
+	syntax:
+	drop database <databasename>;
+	example:
+	drop database myorg;
+	delete->deleting data
+	drop->deleting structure
+----------------------------
+what is table ?
+	-> table is detailed description about an entity
+-----------------------
+what is entity ?
+Entity is all component that is visible infront of our eyes
+----------------------------------------------------------
+How to create a table?
+	create table <tablename>
+	(
+	
+		col1 datatype(length) constraint,
+		col2 datatype(length),
+		col3 datatype(length),
+		col4 datatype(length)
+	);
+	example:
+	create table user
+	(
+		id 	int(10) primary key auto_increment,
+		name varchar(255),
+		mobile bigint(13),
+		address text(500)
+	);
+	create table prduct
+	(
+		proid int(10) primary key auto_increment,
+		name varchar(100),
+		price int(5),
+		description text(100)
+	);
+------------------
+create table employee
+(
+	empid int(10) primary key auto_increment,
+	empname varchar(100),
+	empsal int(8),
+	empdept varchar(100),
+	empcity varchar(100)
+);
+----------------------------------
+how to drop a table in mysql ?
+synttax:
+	drop table <tablename>;
+	example:
+	drop table product;
+	------------------------------------
+	how to show structure of a table?
+	1.explain 
+	2.describe
+	syntax:
+		explain <tablename>
+		describe <tablename>
+		example:
+		explain user;
+		describe user;
+--------------------------------------
+How to rename a table in mysql ?
+	syntax:
+		rename table <oldname> to <rename>
+		example:
+		rename table user to customer;
+--------------------------------------
+how to add new column in existing mysql table?
+xml and yml database
+ for storing data  dml is used
+1. in begning(ddl)
+	syntax:
+		alter table <tablename>
+		add  <newcolumname> datatype(length)
+		first;
+		example:
+		alter table customer
+		add city varchar(100) first;
+-------------------------------------------
+2. in last
+example:
+alter table customer
+add state varchar(100);
+----------------------------
+3. add in middle
+	syntax:
+		alter table <tablename>
+		add <newcolumn> datatype(length) after <oldcolname>;
+		example:
+		alter table customer
+		add pincode int(6) after city;
+------------------------------
+how to add multiple columns on diffrent location ?
+->alter table customer
+	add test1 int(10),
+	add test2 int(10) first,
+	add test3 int(5) after test2;
+	------------------------------------
+	how to rename a column in mysql table?
+	syntax:
+	example:
+	alter table customer
+	change test1 test11 int(8);
+	-------------------
+	how to drop column from mysl table
+	alter table <tablename>
+	drop col <colname>
+	example:
+	Alter table customer
+	Drop column test11;
+	example:
+	alter table customer
+	drop column test2,
+	drop column test3;
+------------------------------------------------------------------
+1.create  database
+2.drop database
+3.create table
+4.drop table
+5.rename table
+6.explain
+7.describe
+8.add columns
+begning
+middle
+last
+8.rename columns using change
+9.drop columns
+-----------------------------
+basics of dml
+1.create a data base name as "company"
+2.create a table named "employee"
+columns as:
+empid int(10) primary key auto_increment
+empname varchar(100)
+empmobile bigint(13)
+empage varchar(100)
+empsalary int(7)
+empcity varchar(100)
+empdept varchar(100)
+empgender varchar(100)
+
+3.rename table employee to staff
+4.rename empdept to empsection
+5.drop column empage
+6.add new column empdob after empname
+7.change datatype of empcity from varchar to text.
+alter table staff
+change empcity empcity text(1000);
+-------------------------------------------------
+-----------------------------DML-------------------------
+how to insert data in mysql table
+1. 
+syntax:
+insert into <tablename>
+set
+columname='value',
+columname2='value',
+columname3='value',
+columname4='value';
+Example:
+insert into staff
+set
+empname='value',
+empmobile='value',
+columname3='value',
+columname4='value';
+
+
+-------------------------------------
+2.syntax
+insert into <tablename>
+(col1,col2,col3)
+values('val1','val2','val3');
+example:
+---------------------------------------------
+insert into staff
+(empname,empcity,empmobile)
+values('BBBBB','Delhi','88888');
+----------------------------------------
+3.syntax:
+example:
+insert into staff
+values('','ccc','77777777','22-08-2017','1500','pune','HR','M');
+-------------------------------------------------------------
+how to insert multiple rows at same time.
+example:
+insert into staff
+(empname,empcity,empsalary) 
+values('GGGGG','banglore','1000'),
+('HHHHH','pune','8999'),
+('IIIII','chennai','7777'),
+('JJJJJ','pune','666'),
+('KKKK','Delhi','12400'),
+('Amir','kolkata','9000'),
+('rashid','banglore','90'),
+('henna','Delhi','1100'),
+('mahit','pune','200'),
+('sony','kolkata','4500');
+-----------------------------------------------------------------
+how to fetch data from mysql table?
+1.syntax:
+select * from staff;
+2.syntax:
+select empname,empcity,empid from staff;
+----------------------------------------
+to arrange in ascending/descending order while display.
+example:
+select * from staff order by empname asc;
+select * from staff order by empsalary desc;
+----------------------------------------------------
+Group By
+=>it will filter and display unique records
+syntax:
+select * from staff group by empcity;
+------------------------------------------
+select * from staff group by empcity order by empname asc;
+------------------------------------------------------
+---------------------------------------------------
+DISTINCT:
+To filter unique record from table but better for 1 column.
+syntax:
+select distinct <colname> from <tablename>;
+example:
+select distinct empcity from staff;
+-------------------------------------------------------------
+BETWEEN:
+for a given range of records
+syntax
+select * from <tablename>
+where <colname> between <min> and <max>
+example:
+select * from staff where empsalary between 5000 and 11000;
+
+select * from staff where empid between 3 and 10 group by empcity order by empid asc;
+----------------------------------------------------------------
+IN
+to filter records random
+syntax:
+select * from <tablename> where <colname> IN(val1,val2,val3);
+example:
+select * from staff where empid in(1,5,10,100);
+---------------------------------------------------------------
+DML:
+	Select
+	order by
+	group by
+	between 
+	distinct
+-------	----------------------
+	In->to fetch record random.
+	
+	example:select * from staff where emp in(1,3,30,120);
+	NoT In:
+	select * from staff where empid not in(1,3,30,120)
+----------------------------------------------------------
+Like:
+To fetch records from table on given pattern
+syntax:
+select * from <tablename> where <colname> like 'pattern';
+example:
+1. select * from staff where empname like 'a%';//a at begning
+
+2.select * from staff where empname like '%a';//a at end
+
+3.select * from staff where empname like '%a%';//anywhere
+
+4.select * from staff where empname like '_a';//2nd char a
+
+5.select * from staff where empname like '%a_';//2nd last character a
+
+----------------------------------------------
+operators:
+	<
+	>
+	<=
+	>=
+	!=
+	OR
+	AND
+--------------------------------------------------
+	Syntax:
+	select * from <tablename> where <condition>;
+	example:
+	select * from staff where empid=4;
+	select * from staff where empid !=4;
+	select * from staff where empid <4;
+	select * from staff where empid >4;
+	select * from staff where empid <=4;
+	select * from staff where empid >=4;
+	
+	select * from staff where empid=4 OR empsalary >8000;
+	select * from staff where empid=4 AND empsalary >8000;
+--------------------------------------------------------------
+update
+-------------
+1.conditional
+2.non-conditional
+----------------------------
+2.syntax:
+update <tablename>
+set 
+colname=new value,
+colname2=new value,
+colname3=new value;
+where <condition>;
+example:
+update staff
+set
+empsalary='12000',
+empcity='Delhi' where empsalary between 5000 and 9000;
+--------------------------------------------------------------
+update staff
+	set
+	empdob='22-05-2017',
+	empgender='Male'
+	where empid=5;
+-----------------------------------------
+IN
+	update staff
+		set
+		empdept='Marketing',
+		empsalary='1500'
+		where empid IN(4,9,11);
+-----------------------------------
+Not IN
+	update staff
+	set
+	empdept='IT',
+	empsalary='20000'
+	where empdept NOT IN('marketing','HR' );
+----------------------------------------------------
+-----------------------------------------
+IS NULL
+-----------------------
+update staff
+	set
+	empdept='IT',
+	empsalary='20000'
+	where empdept IS NULL;
+------------------------------------------------
+Like
+	
+update staff
+	set
+	empcity='chennai',
+	empsalary='20000'
+	where empdept like '%HR';
+---------------------------------------
+BETWEEN
+update staff
+	set
+	empsalary='13000'
+	where empid between 5 and 9;
+-------------------------------------------
+DELETE------------------------
+1.conditional
+2.non conditional
+1.syntax
+delete from <tablename> where <condition>
+example:
+delete from staff where empid=5;
+delete from staff where empid between 1 and 4;
+delete from staff where empid IN(1,8,100);
+2.non-conditional
+syntax:
+delete from <tablename>;
+example:delete from staff;
+
+--------------Truncate---------
+------------------------------
+syntax:
+example:
+Truncate staff;
+
+--------------------------------------------------------
+-------------------------------------------------------
+joins
+ER DiGram
+triger
+indexing
+Normalization
+-------------------------------------------------
+-------------------------------------------------
+insert into staff(empname) values('aaaaaa');
+diffrence between delete and truncate.
+-> both are commands to delete records from table;
+delete
+1.it belongs to DML
+2.IT delete 1 record, or all record , or multiple record.
+3.the primary key index remain same it will deleted by delete command.
+Truncate
+1.it belong to DDL.
+2.it will alwaays delete all records,there is no condition.
+3.The primary key index will also get deleted using truncate
+------------------------------------------------------------
+TRIGGER NAME
+triger name-take any name(empupdate)
+event-update
+---------------------------------
+insert into staffbackup
+set
+empname=old.empname,
+empmobile=old.empmobile,
+empsalary=old.empsalary,
+empcity=old.empcity,
+comment='on employee update',
+empid=old.empid;
+--------------------------------------------
+triger name-employeedelete
+event-delete
+insert into staffbackup
+set
+empname=old.empname,
+empmobile=old.empmobile,
+empsalary=old.empsalary,
+empcity=old.empcity,
+comment='on employee delete',
+empid=old.empid;
+===============================================================MySql JOIN==========================================================
+create table user
+(
+	userid int(10) primary key auto_increment,
+	name varchar(255),
+	mobile bigint(13),
+	cityid int(10)
+);
+
+create table city
+(
+	cityid int(10) primary key auto_increment,
+	cityname varchar(100),
+	stateid int(10)
+);
+
+
+
+create table state
+(
+	stateid int(10) primary key auto_increment,
+	statename varchar(200)
+);
+
+create table address
+(
+	addressid int(10) primary key auto_increment,
+	stateid int(10),
+	cityid int(10),
+	userid int(10),
+	fulladdress text(1000),
+	pincode int(6),
+	houseno varchar(200)
+);
+===========================================================================
+alter table user
+	add constraint cityid
+	foreign key (cityid)
+	references city(cityid);
+==========================================================
+alter table city
+	add constraint stateid
+	foreign key (stateid)
+	references state(stateid);
+========================================================
+alter table address
+	add constraint stateid1 //new
+	foreign key (stateid)
+	references state(stateid);
+	
+alter table address
+	add constraint cityid1 //new
+	foreign key (cityid)
+	references city(cityid);
+
+alter table address
+	add constraint userid
+	foreign key (userid)
+	references user(userid);	
+	
+		
+============================================Types of keys=================
+1.candidate key	
+2.primary key
+3.alternate key
+4.foreign key
+5.composite key
+=====================================
+1.in a table all the columns are known as candidate key.
+example:
+-------------------------------
+sl-name-cityid-mobile
+-------------------------------
+Note: In this table sl,name,cityid,mobile all columns are candidate key.
+--------------------------------------
+2.A column of table which make relation between 2 or more tables.
+Entity Integrity:
+1.primary key should not contain null values.
+2.primary key should not contain duplicate values.
+--------------------------------------------------------
+3.Alternate key=candidate key-primary key;
+example:
+sl--name--cityid--mobile
+
+Note:sl nummber is primary key.
+name,cityid,mobile became as alternate key.
+-----------------------------------------------
+4.Foreign key also column of table as alternate key but 
+it make relation from 2 tables.
+Referential Integrity:
+1.foreign key should not contain null value.
+2.foreign key should be same as primary key value.
+------------------------------------------------------
+5.composite key
+it is composition of multiple alternate key,for the purpose of retrive 100%
+matching records from multiple table.
+Example:
+select * from user where name='abc' 
+and email='abc@gmail.com'
+and mobile='99999'
+and salary>10000;
+-------------------------------------------------
+Types of join
+1.direct join
+2.inner join
+3.left join
+4.left outer
+5.right join
+6.right outer join
+--------------------------------------------
+1.direct join:it will retrive/fetch 100% matching records from multiple inter related table.
+syntax:
+select table1.*,table2.* from table1,table2 where table1.primary key=table2.foreign key
+example:
+select user.*,city.* from user,city
+where city.cityid=user.cityid;
+----------------------------------------------------------------------
+example2:
+select user.name,user.mobile,city.cityname
+from user,city
+where city.cityid=user.cityid;
+-------------------------------------------------
+2.inner join: it will retrive/fetch 100% matching records from all inter related tables.
+sntax:
+select table1.*, table2.* from table1
+inner join table2
+on table1.primary key=table2.foreign key
+
+example:
+select user.*,city.* from city inner join user
+on city.cityid=user.cityid;
+example2:
+select user.name,user.mobile,city.cityname
+from cityid
+inner join user
+on city.cityid=user.cityid;
+-------------------------------------------------------------
+3.Left join:It will fetch all records from main table and only matching records from other/dependent tables.
+syntax:
+select table1.*, table2.* from table1
+left join table2
+on table1.primary key=table2.foreign key
+
+example:
+select user.*,city.* from city left join user
+on city.cityid=user.cityid;
+example2:
+select user.name,user.mobile,city.cityname
+from city
+left join user
+on city.cityid=user.cityid;
+----------------------------------------------------------------------------
+3.Left Outer join:It will fetch all records from main table and only matching records from other/dependent tables.
+syntax:
+select table1.*, table2.* from table1
+left outer join table2
+on table1.primary key=table2.foreign key
+
+example:
+select user.*,city.* from city left outer join user
+on city.cityid=user.cityid;
+example2:
+select user.name,user.mobile,city.cityname
+from city
+left outer join user
+on city.cityid=user.cityid;
+---------------------------------------------------------------------
+4.Right join:It will fetch all records from other/dependent table and only matching records from main table.
+syntax:
+select table1.*, table2.* from table1
+right join table2
+on table1.primary key=table2.foreign key
+
+example:
+select user.*,city.* from city right  join user
+on city.cityid=user.cityid;
+example2:
+select user.name,user.mobile,city.cityname
+from city
+right join user
+on city.cityid=user.cityid;
+----------------------------------------------------------------
+5.Right outer join:It will fetch all records from other/dependent table and only matching records from main table.
+syntax:
+select table1.*, table2.* from table1
+right outer join table2
+on table1.primary key=table2.foreign key
+
+example:
+select user.*,city.* from city right outer  join user
+on city.cityid=user.cityid;
+
+example2:
+select user.name,user.mobile,city.cityname
+from city
+right outer join user
+on city.cityid=user.cityid;
+
+	
+
+
+
+
+
+
+
+
+
+	
+
+	
+	
+	
+
+
+
+	
+
+	
